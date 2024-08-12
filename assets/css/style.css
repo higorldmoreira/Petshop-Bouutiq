@@ -1,0 +1,134 @@
+/* Início CSS Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #3c184e;
+    /* Zera as margens e os paddings de todos os elementos, define o box-sizing para manter o tamanho dos elementos e aplica a fonte global */
+}
+
+/* Estilização do Header */
+header {
+    position: relative;
+    /* Define o header com posição relativa para possibilitar posicionamentos absolutos internos */
+}
+
+header#topo {
+    background: url(/assets/img/banner-topo.jpg) no-repeat;
+    background-position: center -200px;
+    background-size: cover;
+    height: 660px;
+    /* Aplica a imagem de fundo no header com posição e tamanho específicos, e define a altura do header */
+}
+
+img.img-fluid.logo-custom {
+    height: 34px;
+    /* Define a altura da logo dentro do header */
+}
+
+.sublogo {
+    margin-top: -10px;
+    padding-top: 0;
+    font-size: 0.75em;
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+    /* Estiliza o subtítulo abaixo da logo, incluindo sombra de texto */
+}
+
+/* Estilização do Box no Topo */
+.box-topo {
+    position: relative;
+    top: -10%;
+    background: #ffffffc4;
+    box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
+    -webkit-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    /* Aplica um fundo semi-transparente, sombra, largura e arredondamento ao box que contém o conteúdo no topo da página */
+}
+
+/* Estilização do Botão de Contato */
+.btn-contato {
+    background-color: #3c184e;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    /* Estiliza o botão de contato, definindo cores, padding, bordas arredondadas e margem inferior */
+}
+
+.btn-contato i {
+    color: #fff;
+    /* Mantém a cor branca para o ícone dentro do botão */
+}
+
+/* Estilização da Seção de Serviços */
+.container.text-center.pt-5.mt-5 {
+    width: 70%;
+    /* Define a largura do container para a seção de serviços */
+}
+
+.list-custom {
+    list-style-type: square;
+    padding-left: 1rem;
+    /* Estiliza a lista de serviços com marcadores quadrados e padding à esquerda */
+}
+
+.list-custom li {
+    text-align: justify;
+    /* Justifica o texto dentro dos itens da lista de serviços */
+}
+
+/* Estilização das Imagens na Seção de Serviços */
+.box-img img {
+    
+    height: 300px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    /* Define o estilo das imagens na seção de serviços, incluindo altura máxima, cursor, bordas arredondadas e efeito de transição */
+}
+
+/* Estilização do Modal */
+.modal-dialog-centered {
+    max-width: 80vw;
+    /* Limita a largura máxima do modal a 80% da viewport */
+}
+
+.modal-content {
+    background: transparent;
+    border: none;
+    /* Remove o fundo e as bordas do conteúdo do modal para dar ênfase à imagem */
+}
+
+.modal-backdrop.show {
+    backdrop-filter: blur(10px);
+    /* Aplica um efeito de desfoque ao fundo da página quando o modal está ativo */
+}
+
+.modal-body img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* Estiliza a imagem dentro do modal para ocupar toda a largura disponível e com bordas arredondadas */
+}
+
+/* Estilização do Rodapé */
+footer.bg-dark {
+    background-color: #3c184e !important;
+    /* Define a cor de fundo do rodapé */
+}
+
+footer a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    /* Estiliza os links de redes sociais no rodapé com tamanho de fonte maior e espaçamento entre eles */
+}
+
+footer a:hover {
+    color: #ffd700;
+    /* Aplica uma cor de destaque ao passar o mouse sobre os links do rodapé */
+}
