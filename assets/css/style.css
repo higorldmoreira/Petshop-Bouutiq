@@ -190,3 +190,6 @@ footer a:hover {
 .fade-in.visible {
     opacity: 1;
 }
+.dev{
+    color: white;
+}
