@@ -4,8 +4,22 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    color: #3c184e;
     /* Zera as margens e os paddings de todos os elementos, define o box-sizing para manter o tamanho dos elementos e aplica a fonte global */
+}
+
+.container-custom {
+    width: 90%; /* Ajustado para telas pequenas */
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+    /* Define uma largura personalizada para o container e centraliza-o horizontalmente */
+}
+
+@media (max-width: 768px) {
+    .container-custom {
+        width: 100%; /* Remove margens laterais em dispositivos menores */
+        padding: 0 10px;
+    }
 }
 
 /* Estilização do Header */
@@ -16,8 +30,9 @@ header {
 
 header#topo {
     background: url(/assets/img/banner-topo.jpg) no-repeat;
-    background-position: center -200px;
+    background-position: center top;
     background-size: cover;
+    background-attachment: fixed; /* Parallax Effect */
     height: 660px;
     /* Aplica a imagem de fundo no header com posição e tamanho específicos, e define a altura do header */
 }
@@ -41,11 +56,10 @@ img.img-fluid.logo-custom {
     top: -10%;
     background: #ffffffc4;
     box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
-    -webkit-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
-    -moz-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.9);
     width: 80%;
     margin: 0 auto;
     border-radius: 15px;
+    padding: 20px; /* Ajustado para telas menores */
     /* Aplica um fundo semi-transparente, sombra, largura e arredondamento ao box que contém o conteúdo no topo da página */
 }
 
@@ -53,10 +67,24 @@ img.img-fluid.logo-custom {
 .btn-contato {
     background-color: #3c184e;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     border-radius: 10px;
     margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+    font-size: 1.2rem;
     /* Estiliza o botão de contato, definindo cores, padding, bordas arredondadas e margem inferior */
+}
+
+@media (max-width: 576px) {
+    .btn-contato {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+.btn-contato:hover {
+    transform: scale(1.1);
+    /* Adiciona um efeito de crescimento ao passar o mouse */
 }
 
 .btn-contato i {
@@ -83,37 +111,27 @@ img.img-fluid.logo-custom {
 
 /* Estilização das Imagens na Seção de Serviços */
 .box-img img {
-    
     height: 300px;
     width: auto;
     cursor: pointer;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-    /* Define o estilo das imagens na seção de serviços, incluindo altura máxima, cursor, bordas arredondadas e efeito de transição */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Define o estilo das imagens na seção de serviços, incluindo altura, cursor, bordas arredondadas e efeito de transição */
 }
 
-/* Estilização do Modal */
-.modal-dialog-centered {
-    max-width: 80vw;
-    /* Limita a largura máxima do modal a 80% da viewport */
+.box-img img:hover,
+.row img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Adiciona um leve zoom e sombra ao passar o mouse */
 }
 
-.modal-content {
-    background: transparent;
-    border: none;
-    /* Remove o fundo e as bordas do conteúdo do modal para dar ênfase à imagem */
-}
-
-.modal-backdrop.show {
-    backdrop-filter: blur(10px);
-    /* Aplica um efeito de desfoque ao fundo da página quando o modal está ativo */
-}
-
-.modal-body img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    /* Estiliza a imagem dentro do modal para ocupar toda a largura disponível e com bordas arredondadas */
+/* Estilização da Faixa Social Roxa */
+.faixa-social {
+    background: #3c184e;
+    color: aliceblue;
+    font-size: 1rem;
+    /* Define o fundo roxo e a cor do texto branco para a faixa social */
 }
 
 /* Estilização do Rodapé */
@@ -131,4 +149,44 @@ footer a {
 footer a:hover {
     color: #ffd700;
     /* Aplica uma cor de destaque ao passar o mouse sobre os links do rodapé */
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Define o preloader que cobre toda a tela até o site carregar */
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3c184e;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    /* Animação de rotação para o preloader */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animação de Fade-In */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
 }
