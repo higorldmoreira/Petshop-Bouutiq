@@ -1,20 +1,32 @@
-// Seleciona todos os links dentro da div com a classe 'box-img'
-const imageLinks = document.querySelectorAll('.box-img a');
+// JavaScript para adicionar a classe 'visible' quando o elemento entra na viewport
+document.addEventListener('DOMContentLoaded', function() {
+  var elements = document.querySelectorAll('.fade-in');
 
-// Seleciona a imagem que será exibida dentro do modal
-const modalImage = document.getElementById('modalImage');
+  function checkVisibility() {
+      elements.forEach(function(element) {
+          var rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+              element.classList.add('visible');
+          }
+      });
+  }
 
-// Itera sobre cada link de imagem
-imageLinks.forEach(link => {
-  // Adiciona um ouvinte de evento de clique para cada link
-  link.addEventListener('click', function(event) {
-    // Previne o comportamento padrão do link (navegação)
-    event.preventDefault();
+  window.addEventListener('scroll', checkVisibility);
+  checkVisibility(); // Executa uma vez no carregamento da página
 
-    // Obtém o atributo 'href' do link, que contém o caminho da imagem
-    const imgSrc = this.getAttribute('href');
+  // Remove o preloader após o carregamento da página
+  window.addEventListener('load', function() {
+      document.getElementById('preloader').style.display = 'none';
+  });
 
-    // Define o caminho da imagem no elemento de imagem dentro do modal
-    modalImage.setAttribute('src', imgSrc);
+  // Animação de scroll suave para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
   });
 });

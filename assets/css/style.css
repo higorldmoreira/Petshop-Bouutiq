@@ -16,6 +16,7 @@
 }
 
 @media (max-width: 768px) {
+    
     .container-custom {
         width: 100%; /* Remove margens laterais em dispositivos menores */
         padding: 0 10px;
@@ -108,7 +109,9 @@ img.img-fluid.logo-custom {
     text-align: justify;
     /* Justifica o texto dentro dos itens da lista de serviços */
 }
-
+.box-img.shadow-lg.pb.d-flex.justify-content-between.flex-wrap.mt-5{
+    background: rgba(77, 104, 129, 0);
+}
 /* Estilização das Imagens na Seção de Serviços */
 .box-img img {
     height: 300px;
